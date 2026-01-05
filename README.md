@@ -9,14 +9,22 @@
 
 ```text
 algorithm/
-├── {문제집 사이트}/
+├── {알고리즘 카테고리}/              # 루트 레벨 알고리즘 카테고리
+│   ├── {알고리즘명}.md               # 공통 알고리즘 이론 정리
+│   ├── {문제집 사이트}-{문제 ID}/    # 문제 폴더 (예: boj-15651)
+│   │   ├── 1.analysis.md             # 문제 요약 및 핵심 포인트 정리
+│   │   ├── 2.algorithm.md            # 알고리즘 적용 및 문제별 특이사항
+│   │   ├── 3.reasoning.md            # 알고리즘 적용 사고 과정
+│   │   └── Main.java                 # 최종 해답 코드
+│   └── ...
+├── {문제집 사이트}/                  # 문제집 사이트별 폴더 (예: boj)
 │   ├── {알고리즘 카테고리}/
-│   │   ├── {알고리즘명}.md         # 공통 알고리즘 이론 정리 (예: backtracking.md, topological-sort.md)
-│   │   ├── {문제 ID}/
-│   │   │   ├── 1.analysis.md       # 문제 요약 및 핵심 포인트 정리
-│   │   │   ├── 2.algorithm.md      # 알고리즘 적용 및 문제별 특이사항
-│   │   │   ├── 3.reasoning.md      # 알고리즘 적용 사고 과정
-│   │   │   └── Main.java           # 최종 해답 코드
+│   │   ├── {알고리즘명}.md           # 공통 알고리즘 이론 정리
+│   │   ├── {문제 ID}/                # 문제 폴더 (예: 2751)
+│   │   │   ├── 1.analysis.md
+│   │   │   ├── 2.algorithm.md
+│   │   │   ├── 3.reasoning.md
+│   │   │   └── Main.java
 │   │   └── ...
 │   └── ...
 └── README.md
@@ -24,11 +32,17 @@ algorithm/
 
 ### 구조 설명
 
-* **문제집 사이트**: 문제 출처 구분 (예: `boj`, `leetcode`, `programmers` 등)
-* **알고리즘 카테고리**: 사용된 알고리즘 유형별 분류 (예: `topology-sort`, `brute-force`, `dynamic-programming` 등)
-  * 각 카테고리 폴더에는 해당 알고리즘의 **공통 이론 설명 파일**이 포함됩니다
-  * 예: `backtracking.md`, `topological-sort.md` 등
-* **문제 ID**: 해당 사이트의 문제 번호 또는 식별자
+이 저장소는 **두 가지 구조**를 지원합니다:
+
+1. **루트 레벨 구조** (주로 사용):
+   * **알고리즘 카테고리**: 사용된 알고리즘 유형별 분류 (예: `brute-force`, `divide-and-conquer`, `graph-traversal`, `topology-sort` 등)
+   * **문제 폴더명**: `{문제집 사이트}-{문제 ID}` 형식 (예: `boj-15651`, `boj-2751`)
+   * 각 카테고리 폴더에는 해당 알고리즘의 **공통 이론 설명 파일**이 포함됩니다
+
+2. **문제집 사이트별 구조** (선택적):
+   * **문제집 사이트**: 문제 출처 구분 (예: `boj`, `leetcode`, `programmers` 등)
+   * **알고리즘 카테고리**: 해당 사이트 내에서의 알고리즘 유형별 분류
+   * **문제 ID**: 해당 사이트의 문제 번호 또는 식별자
 
 각 문제는 **4개의 파일**로 구성되어 문제 해결의 전 과정을 추적할 수 있습니다.
 
@@ -101,7 +115,10 @@ algorithm/
 * **용도**: 같은 알고리즘을 사용하는 여러 문제에서 공통으로 참조
 
 **예시:**
-* `boj/brute-force/backtracking.md`: 백트래킹 알고리즘 전체 이론
-* `boj/topology-sort/topological-sort.md`: 위상 정렬 알고리즘 전체 이론
+* `brute-force/backtracking.md`: 백트래킹 알고리즘 전체 이론
+* `topology-sort/topological-sort.md`: 위상 정렬 알고리즘 전체 이론
+* `divide-and-conquer/merge-sort/merge-sort.md`: 병합 정렬 알고리즘 전체 이론
+* `graph-traversal/bfs/bfs.md`: BFS 알고리즘 전체 이론
+* `boj/heap/heap.md`: 힙 알고리즘 전체 이론 (문제집 사이트별 구조)
 
 각 문제의 `2.algorithm.md`는 이 공통 설명을 링크하고, 해당 문제에 특화된 적용 방법과 특이사항만 추가로 설명합니다.
